@@ -37,9 +37,9 @@ class FindView: UIView {
         mapView.isShowsIndoorMap = true
         addSubview(mapView)
         
-        mapButtonView.layer.shadowColor = UIColor.lightGray.cgColor
-        mapButtonView.layer.shadowRadius = 11
-        mapButtonView.layer.shadowOpacity = 0.2
+        mapButtonView.layer.shadowColor = UIColor.darkGray.cgColor
+        mapButtonView.layer.shadowRadius = 16
+        mapButtonView.layer.shadowOpacity = 0.3
         addSubview(mapButtonView)
     }
     

@@ -5,8 +5,8 @@
 //  Created by Weiyi Kong on 29/5/21.
 //
 
-import UIKit
 import SnapKit
+import UIKit
 
 class MapButtonView: UIView {
     override init(frame: CGRect) {
@@ -23,8 +23,7 @@ class MapButtonView: UIView {
     private func setup() {
         layer.cornerRadius = 8
         layer.cornerCurve = .continuous
-        clipsToBounds = true
-        backgroundColor = .secondarySystemGroupedBackground
+        backgroundColor = .tertiarySystemBackground.withAlphaComponent(0.95)
     }
     
     func update(models: [MapButtonModel]) {
@@ -42,7 +41,7 @@ class MapButtonView: UIView {
             singleButtonView.addSubview(imageView)
             
             imageView.snp.makeConstraints { make in
-                make.size.equalToSuperview().offset(-22)
+                make.size.equalTo(24)
                 make.center.equalToSuperview()
             }
             
@@ -64,7 +63,7 @@ class MapButtonView: UIView {
                 }
             } else {
                 let separator = UIView()
-                separator.backgroundColor = .opaqueSeparator
+                separator.backgroundColor = .separator
                 addSubview(separator)
                 
                 separator.snp.makeConstraints { make in

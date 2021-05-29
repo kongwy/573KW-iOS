@@ -16,11 +16,11 @@ class FindViewController: UIViewController {
     }
 
     lazy var contentView = FindView()
-    
+
     var isLocationAuthorized = SPPermissions.Permission.locationWhenInUse.authorized
     let mapButtons = [
         MapButtonModel(image: UIImage(systemName: "list.bullet"), completionHandler: nil),
-        MapButtonModel(image: UIImage(systemName: "location.circle"), completionHandler: nil)
+        MapButtonModel(image: UIImage(systemName: "location"), completionHandler: nil)
     ]
 
     override func viewDidLoad() {
@@ -56,7 +56,6 @@ class FindViewController: UIViewController {
 }
 
 extension FindViewController: MAMapViewDelegate {
-    
     func mapView(_ mapView: MAMapView!, mapWillZoomByUser wasUserAction: Bool) {
         mapView.scaleOrigin = CGPoint(x: 8, y: tabBarController!.tabBar.frame.origin.y - 28)
         mapView.showsScale = true
