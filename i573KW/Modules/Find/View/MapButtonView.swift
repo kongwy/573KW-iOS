@@ -28,11 +28,10 @@ class MapButtonView: UIView {
     }
     
     func update(models: [MapButtonModel]) {
-        snp.removeConstraints()
+        removeSubviews()
         snp.makeConstraints { make in
             make.width.equalTo(44)
         }
-        removeSubviews()
         
         var buttons = [UIView]()
         for model in models {
@@ -56,8 +55,7 @@ class MapButtonView: UIView {
             addSubview(button)
             button.snp.makeConstraints { make in
                 make.height.equalTo(44)
-                make.left.equalToSuperview()
-                make.right.equalToSuperview()
+                make.left.right.equalToSuperview()
             }
             
             if index == 0 {
@@ -72,8 +70,7 @@ class MapButtonView: UIView {
                 separator.snp.makeConstraints { make in
                     make.height.equalTo(1)
                     make.top.equalTo(buttons[index - 1].snp.bottom)
-                    make.left.equalToSuperview()
-                    make.right.equalToSuperview()
+                    make.left.right.equalToSuperview()
                 }
                 
                 button.snp.makeConstraints { make in
@@ -86,9 +83,5 @@ class MapButtonView: UIView {
                 }
             }
         }
-        
-//        snp.makeConstraints { make in
-//            make.height.equalTo(buttons.count * 45 - 1)
-//        }
     }
 }

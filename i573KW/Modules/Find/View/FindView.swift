@@ -49,7 +49,7 @@ class FindView: UIView {
         }
         
         mapButtonView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(44)
+            make.top.equalTo(safeAreaLayoutGuide.snp.top).offset(8)
             make.right.equalToSuperview().offset(-8)
         }
     }
