@@ -1,25 +1,42 @@
 PODS:
-  - AMap2DMap-NO-IDFA (5.6.1):
-    - AMapFoundation-NO-IDFA (~> 1.4)
+  - AMap3DMap-NO-IDFA (7.9.0):
+    - AMapFoundation-NO-IDFA (~> 1.6.6)
   - AMapFoundation-NO-IDFA (1.6.7)
   - AMapLocation-NO-IDFA (2.6.8):
     - AMapFoundation-NO-IDFA (~> 1.6.4)
+  - LookinServer (1.0.0)
+  - SnapKit (5.0.1)
+  - SPPermissions/Core (6.1.1)
+  - SPPermissions/LocationWhenInUse (6.1.1):
+    - SPPermissions/Core
+  - SPPermissions/Motion (6.1.1):
+    - SPPermissions/Core
 
 DEPENDENCIES:
-  - AMap2DMap-NO-IDFA
+  - AMap3DMap-NO-IDFA
   - AMapLocation-NO-IDFA
+  - LookinServer
+  - SnapKit (~> 5.0.0)
+  - SPPermissions/LocationWhenInUse
+  - SPPermissions/Motion
 
 SPEC REPOS:
   trunk:
-    - AMap2DMap-NO-IDFA
+    - AMap3DMap-NO-IDFA
     - AMapFoundation-NO-IDFA
     - AMapLocation-NO-IDFA
+    - LookinServer
+    - SnapKit
+    - SPPermissions
 
 SPEC CHECKSUMS:
-  AMap2DMap-NO-IDFA: ccecb3e2a044c17e6badb9b91c950e709368be20
+  AMap3DMap-NO-IDFA: d0474d32fd22d1f3610192ab37a8637c3e4a5189
   AMapFoundation-NO-IDFA: ec05c37e6991ca9a9c5f5e38d3069581be57b6a0
   AMapLocation-NO-IDFA: 84418826d61f64a0fc971fbd69e0ef2d16036275
+  LookinServer: 0002891cd3cec5e082a910e897dfe71b4f06b89e
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  SPPermissions: ef4e258cdfff5befc9bf06b827c9bcfa26f268e3
 
-PODFILE CHECKSUM: 3b976546611f51834b9dc137670ba4ac2c9651aa
+PODFILE CHECKSUM: 02ee228e760fccb3c9501f0f5b0400ae5c1a1c04
 
 COCOAPODS: 1.10.0
