@@ -17,7 +17,7 @@ Pods/
 .LSOverride
 
 # Icon must end with two \r
-Icon
+Icon
 
 # Thumbnails
 ._*
@@ -68,8 +68,11 @@ DerivedData/
 
 ### Xcode Patch ###
 *.xcodeproj/*
-!*.xcodeproj/project.pbxproj
-!*.xcodeproj/xcshareddata/
+
+# Use XcodeGen to generate Xcode project
+# !*.xcodeproj/project.pbxproj
+# !*.xcodeproj/xcshareddata/
+
 !*.xcworkspace/contents.xcworkspacedata
 **/xcshareddata/WorkspaceSettings.xcsettings
 

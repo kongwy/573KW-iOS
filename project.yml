@@ -1,0 +1,13 @@
+name: i573KW
+options:
+  bundleIdPrefix: com.kongwy
+  createIntermediateGroups: true
+  deploymentTarget:
+    iOS: 14.0
+targets:
+  i573KW:
+    type: application
+    platform: iOS
+    deploymentTarget: 14.0
+    sources:
+      - path: i573KW
