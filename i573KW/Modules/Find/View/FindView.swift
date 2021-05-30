@@ -11,7 +11,7 @@ import UIKit
 
 class FindView: UIView {
     lazy var mapView = MAMapView()
-    lazy var mapButtonView = MapButtonView()
+    lazy var mapButtonGroupView = MapButtonGroupView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -37,10 +37,10 @@ class FindView: UIView {
         mapView.isShowsIndoorMap = true
         addSubview(mapView)
         
-        mapButtonView.layer.shadowColor = UIColor.darkGray.cgColor
-        mapButtonView.layer.shadowRadius = 16
-        mapButtonView.layer.shadowOpacity = 0.3
-        addSubview(mapButtonView)
+        mapButtonGroupView.layer.shadowColor = UIColor.darkGray.cgColor
+        mapButtonGroupView.layer.shadowRadius = 16
+        mapButtonGroupView.layer.shadowOpacity = 0.3
+        addSubview(mapButtonGroupView)
     }
     
     private func prepare() {
@@ -48,13 +48,14 @@ class FindView: UIView {
             make.edges.equalToSuperview()
         }
         
-        mapButtonView.snp.makeConstraints { make in
+        mapButtonGroupView.snp.makeConstraints { make in
             make.top.equalTo(safeAreaLayoutGuide.snp.top).offset(8)
             make.right.equalToSuperview().offset(-8)
         }
     }
     
     func update(buttonModels: [MapButtonModel]) {
-        mapButtonView.update(models: buttonModels)
+        mapButtonGroupView.update(models: buttonModels)
+        mapButtonGroupView.setNeedsLayout()
     }
 }

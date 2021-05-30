@@ -18,9 +18,11 @@ class FindViewController: UIViewController {
     lazy var contentView = FindView()
 
     var isLocationAuthorized = SPPermissions.Permission.locationWhenInUse.authorized
-    let mapButtons = [
+    lazy var mapButtons = [
         MapButtonModel(image: UIImage(systemName: "list.bullet"), completionHandler: nil),
-        MapButtonModel(image: UIImage(systemName: "location"), completionHandler: nil)
+        MapButtonModel(image: UIImage(systemName: "location"), completionHandler: { _ in
+            self.locateButtonDidTapped()
+        })
     ]
 
     override func viewDidLoad() {
@@ -55,6 +57,8 @@ class FindViewController: UIViewController {
     }
 }
 
+// MARK: - MapView Support
+
 extension FindViewController: MAMapViewDelegate {
     func mapView(_ mapView: MAMapView!, mapWillZoomByUser wasUserAction: Bool) {
         mapView.scaleOrigin = CGPoint(x: 8, y: tabBarController!.tabBar.frame.origin.y - 28)
@@ -63,5 +67,19 @@ extension FindViewController: MAMapViewDelegate {
 
     func mapView(_ mapView: MAMapView!, mapDidZoomByUser wasUserAction: Bool) {
         mapView.showsScale = false
+    }
+
+    func mapView(_ mapView: MAMapView!, mapWillMoveByUser wasUserAction: Bool) {
+        contentView.mapButtonGroupView.buttonViews[1].imageView.image = UIImage(systemName: "location")
+    }
+}
+
+extension FindViewController {
+    func locateButtonDidTapped() {
+        let userLocation = contentView.mapView.userLocation.coordinate
+        let span = MACoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)
+        let region = MACoordinateRegion(center: userLocation, span: span)
+        contentView.mapView.setRegion(region, animated: true)
+        contentView.mapButtonGroupView.buttonViews[1].imageView.image = UIImage(systemName: "location.fill")
     }
 }
