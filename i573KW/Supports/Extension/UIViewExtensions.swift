@@ -15,6 +15,7 @@ extension UIView {
 }
 
 // MARK: - Add Gesture Recognizer with Closuer
+
 public extension UIView {
     func addTapGestureRecognizer(action: (() -> Void)?) {
         tapAction = action
