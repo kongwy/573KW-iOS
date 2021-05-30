@@ -11,3 +11,5 @@ targets:
     deploymentTarget: 14.0
     sources:
       - path: i573KW
+    settings:
+      SWIFT_OBJC_BRIDGING_HEADER: ./i573KW/i573KW-Bridging-Header.h
