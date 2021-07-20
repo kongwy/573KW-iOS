@@ -7,6 +7,7 @@ target 'i573KW' do
   pod 'SnapKit', '~> 5.0.0'
   pod 'SPPermissions/LocationWhenInUse'
   pod 'SPPermissions/Motion'
+  pod 'SwifterSwift'
   pod 'AMap3DMap-NO-IDFA'
   pod 'AMapLocation-NO-IDFA'
   pod 'LookinServer', :configurations => ['Debug']
