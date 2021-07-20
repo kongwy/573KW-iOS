@@ -11,13 +11,9 @@ import SPPermissions
 import UIKit
 
 class FindViewController: UIViewController {
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .darkContent
-    }
+    var isLocationAuthorized = SPPermissions.Permission.locationWhenInUse.authorized
 
     lazy var contentView = FindView()
-
-    var isLocationAuthorized = SPPermissions.Permission.locationWhenInUse.authorized
     lazy var mapButtons = [
         MapButtonModel(image: UIImage(systemName: "list.bullet"), completionHandler: nil),
         MapButtonModel(image: UIImage(systemName: "location"), completionHandler: { _ in
@@ -27,12 +23,14 @@ class FindViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         view.backgroundColor = .white
 
         title = "Find"
         view.addSubview(contentView)
 
         contentView.mapView.delegate = self
+        contentView.update(userInterfaceStyle: traitCollection.userInterfaceStyle)
         contentView.update(buttonModels: mapButtons)
     }
 
@@ -77,7 +75,7 @@ extension FindViewController: MAMapViewDelegate {
 extension FindViewController {
     func locateButtonDidTapped() {
         let userLocation = contentView.mapView.userLocation.coordinate
-        let span = MACoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)
+        let span = MACoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
         let region = MACoordinateRegion(center: userLocation, span: span)
         contentView.mapView.setRegion(region, animated: true)
         contentView.mapButtonGroupView.buttonViews[1].imageView.image = UIImage(systemName: "location.fill")

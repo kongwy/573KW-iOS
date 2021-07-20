@@ -53,7 +53,24 @@ class FindView: UIView {
             make.right.equalToSuperview().offset(-8)
         }
     }
-    
+
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+
+        if traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
+            update(userInterfaceStyle: traitCollection.userInterfaceStyle)
+        }
+    }
+
+    func update(userInterfaceStyle: UIUserInterfaceStyle) {
+        switch userInterfaceStyle {
+        case .dark:
+            mapView.mapType = .standardNight
+        default:
+            mapView.mapType = .standard
+        }
+    }
+
     func update(buttonModels: [MapButtonModel]) {
         mapButtonGroupView.update(models: buttonModels)
         mapButtonGroupView.setNeedsLayout()
